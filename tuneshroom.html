@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuneShroom</title>
+  <style>
+    img {
+      max-width:min(700px, 100%);
+
+    }
+  </style>
+</head>
+
+
+  <body>
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">TuneShroom</h1>
+    <p class="post-meta"><time datetime="2019-10-02T13:25:00+02:00" itemprop="datePublished">Oct 2, 2019</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>So I made another PCB and it’s awesome! It makes noises and looks like a mushroom <img class="emoji" title=":mushroom:" alt=":mushroom:" src="https://github.githubassets.com//images/icons/emoji/unicode/1f344.png" height="20" width="20"> I used <a href="https://github.com/badgeek/svg2shenzhen">svg2shenzhen</a>, <a href="http://www.kicad-pcb.org/">KiCad</a>, and <a href="https://inkscape.org/">Inkscape</a>. It’s just a USB MIDI controller wih lots of capacitive touch pads. Checkout the <a href="https://github.com/ollyoid/TuneShroom">github repo</a> for code and gerbers.</p>
+
+<p><img src="images/posts/TuneShroom.jpg" alt="The Board"></p>
+
+<h2 id="the-prototype">The Prototype</h2>
+<p>I started off by making a proof of concept out of the worlds greatest material, CARDBOARD! I used aluminium foil tape to make contacts and threaded rainbow cable through the back to an “Arduino” Pro Micro. This was quick to build but I felt a little limited by the number of pins available on the Pro Micro and through the arduino layer so decided to explore the world of bare metal programming!</p>
+
+<p><img src="images/posts/TuneShroomPrototype.jpg" alt="The prototype"></p>
+
+<h2 id="the-board">The Board</h2>
+<p>I ordered the PCBs from JLCPCB, They were super cheap and came within a week to my university halls. Unfortunately the same can’t be said for the components I ordered from TaoBao. They got lost somewhere between Shenzhen and Hong Kong. Fortunately, I also got my Chinese visa last week, So it was a perfect opportunity to go and visit the electronics markets at HQB and spend more money than I needed to on all sorts of exciting electronics! Anyway, I managed to source all the parts and soldered them up at <a href="https://www.dimsumlabs.com/">Dimsum Labs</a> in Hong Kong.</p>
+
+<h2 id="the-code">The Code</h2>
+<p>As mentioned above, I started off in the comfort of the Arduino environment but felt as though I was pushing the boundaries of what it should be used for. I decided it was time to graduate to real bare metal programming. I used the <a href="https://github.com/abcminiuser/lufa">LUFA</a> library to help me with all the USB stuff. Apart from working out all the DDRs, PINs and the PORTs it was fairly painless, and I look forward to working on some other more advanced embedded projects.</p>
+
+<h2 id="programming">Programming</h2>
+<p>I built myself a little programmer with some pogo pins I picked up at HQB. It’s a little dodgy but it seems to do the trick. I would love to try out building some real programming jigs though. Maybe a future project…</p>
+
+<p><img src="images/posts/TuneShroomprogramming.jpg" alt="Programmer"></p>
+
+<h2 id="whats-next">What’s Next?</h2>
+<p>I’m not sure really how to progress with this project. It was fun, but I feel making MIDI controllers is cheating a bit because it isn’t really that difficult. I really want to have a go at making some real synths. I’ve got a list of things to improve if there were to be a v2. More LEDs and maybe easier to use.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
