@@ -11,10 +11,10 @@ layout: layouts/base.njk
             {% if project.data.image %}
                 {% if project.data.permalink != false %}
                     <a href="{{ project.url }}" style="border:none; padding:0;">
-                    {% image project.data.image, project.data.title, "(min-width: 30em) 50vw, 100vw" %}
+                    {% image project.data.image, project.data.title, "300px" %}
                     </a>
                 {% else %}
-                    {% image project.data.image, project.data.title, "(min-width: 30em) 50vw, 100vw" %}
+                    {% image project.data.image, project.data.title, "300px" %}
                 {% endif %}
             {% endif %}
             <br>
