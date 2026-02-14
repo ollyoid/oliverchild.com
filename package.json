@@ -1,0 +1,17 @@
+{
+  "name": "oliverchild-com",
+  "version": "1.0.0",
+  "description": "Oliver Child's Portfolio",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "Oliver Child",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0"
+  }
+}

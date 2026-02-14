@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+{{ content | safe }}
+<div id="projects">
+    <br>
+    {% for project in collections.project | reverse %}
+        <div class="proj">
+            <span> <b>{{ project.data.title }}{% if project.data.date_display %} - {{ project.data.date_display }}{% endif %}</b> </span>
+            <br>
+            {% if project.data.image %}
+                {% if project.data.permalink != false %}
+                    <a href="{{ project.url }}" style="border:none; padding:0;">
+                    {% image project.data.image, project.data.title, "(min-width: 30em) 50vw, 100vw" %}
+                    </a>
+                {% else %}
+                    {% image project.data.image, project.data.title, "(min-width: 30em) 50vw, 100vw" %}
+                {% endif %}
+            {% endif %}
+            <br>
+            <span>{{ project.data.description }}</span>
+            <br>
+            {% for link in project.data.external_links %}
+                {% if link.url %}
+                <span><a href="{{ link.url }}">{{ link.text }}</a></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
