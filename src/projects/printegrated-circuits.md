@@ -12,6 +12,8 @@ external_links:
     url: https://github.com/ollyoid/Printegrated-Circuits?tab=readme-ov-file
   - text: Preprint
     url: https://arxiv.org/abs/2509.08459#
+  - text: OSHWA Talk
+    url: https://www.youtube.com/watch?v=rc49FskUonI
 tags: project
 layout: layouts/project.njk
 ---
