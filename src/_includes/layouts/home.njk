@@ -8,13 +8,34 @@ layout: layouts/base.njk
         <div class="proj">
             <span> <b>{{ project.data.title }}{% if project.data.date_display %} - {{ project.data.date_display }}{% endif %}</b> </span>
             <br>
-            {% if project.data.image %}
+            {% if project.data.images or project.data.image %}
                 {% if project.data.permalink != false %}
                     <a href="{{ project.url }}" style="border:none; padding:0;">
-                    {% image project.data.image, project.data.title, "300px" %}
-                    </a>
+                {% endif %}
+                
+                {% if project.data.images %}
+                    {# Handle Multiple Images #}
+                    {% set has_gif = false %}
+                    {% for img in project.data.images %}
+                        {% if '.gif' in img %}{% set has_gif = true %}{% endif %}
+                    {% endfor %}
+
+                    <div class="project-gallery proj-image-container" data-has-gif="{{ has_gif }}">
+                        {% for img in project.data.images %}
+                            <div class="gallery-image" data-is-gif="{% if '.gif' in img %}true{% else %}false{% endif %}" style="opacity: {% if loop.first %}1{% else %}0{% endif %};">
+                                {% image img, project.data.title, "300px" %}
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% else %}
-                    {% image project.data.image, project.data.title, "300px" %}
+                    {# Handle Single Image Fallback #}
+                    <div class="proj-image-container">
+                        {% image project.data.image, project.data.title, "300px" %}
+                    </div>
+                {% endif %}
+
+                {% if project.data.permalink != false %}
+                    </a>
                 {% endif %}
             {% endif %}
             <br>
@@ -28,3 +49,80 @@ layout: layouts/base.njk
         </div>
     {% endfor %}
 </div>
+
+<style>
+    .proj-image-container {
+        width: 300px;
+        aspect-ratio: 4 / 3;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+    }
+    .proj-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+    .gallery-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 0s ease-in-out;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const galleries = document.querySelectorAll(".project-gallery");
+
+        galleries.forEach(gallery => {
+            const images = gallery.querySelectorAll(".gallery-image");
+            if (images.length <= 1) return; // No slideshow needed
+            
+            const hasGif = gallery.getAttribute("data-has-gif") === "true";
+            let gifIndex = -1;
+            
+            if (hasGif) {
+                images.forEach((img, index) => {
+                    if (img.getAttribute("data-is-gif") === "true") {
+                        if (gifIndex === -1) gifIndex = index;
+                    }
+                });
+            }
+
+            let interval;
+            let currentIndex = 0;
+
+            gallery.addEventListener("mouseenter", () => {
+                if (hasGif && gifIndex !== -1) {
+                    images[currentIndex].style.opacity = 0;
+                    currentIndex = gifIndex;
+                    images[currentIndex].style.opacity = 1;
+                } else {
+                    // Instantly show the second image on hover if it's there
+                    images[currentIndex].style.opacity = 0;
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].style.opacity = 1;
+
+                    // Cycle every 1 second
+                    interval = setInterval(() => {
+                        images[currentIndex].style.opacity = 0;
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].style.opacity = 1;
+                    }, 1000);
+                }
+            });
+
+            gallery.addEventListener("mouseleave", () => {
+                if (interval) clearInterval(interval);
+                images[currentIndex].style.opacity = 0;
+                currentIndex = 0;
+                images[currentIndex].style.opacity = 1;
+            });
+        });
+    });
+</script>
