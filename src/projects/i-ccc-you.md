@@ -2,7 +2,9 @@
 title: I CCC You
 date: 2023-10-01
 date_display: OCT 2023
-image: src/images/I_CCC.jpg
+images:
+  - src/images/I_CCC.jpg
+  - src/images/eyegif.gif
 description: A giant animatronic googly eye
 permalink: false
 external_links:

@@ -2,7 +2,9 @@
 title: Generative TuneShrooms
 date: 2025-11-01
 date_display: Nov 2025
-image: src/images/Generative_shrooms.jpg
+images:
+  - src/images/Generative_shrooms.jpg
+  - src/images/Generative_shrooms.gif
 description: Automated conductive routing in 3D prints
 permalink: false
 external_links:

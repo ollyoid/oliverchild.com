@@ -2,7 +2,9 @@
 title: Strokestruder
 date: 2025-05-01
 date_display: MAY 2025
-image: src/images/strokestruder.jpg
+images:
+  - src/images/strokestruder.jpg
+  - src/images/strokestruder.gif
 description: IPad controlled 3D drawing
 permalink: false
 external_links:
