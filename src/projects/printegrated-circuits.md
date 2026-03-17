@@ -10,8 +10,8 @@ external_links:
     url: /printegratedcircuits
   - text: Github
     url: https://github.com/ollyoid/Printegrated-Circuits?tab=readme-ov-file
-  - text: Preprint
-    url: https://arxiv.org/abs/2509.08459#
+  - text: ACM DL
+    url: https://dl.acm.org/doi/10.1145/3731459.3773307
   - text: OSHWA Talk
     url: https://www.youtube.com/watch?v=rc49FskUonI
 tags: project
