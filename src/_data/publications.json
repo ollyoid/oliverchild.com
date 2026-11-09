@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Print & Place: Using a 3D Printer for Continuous Assembly of Electronic Devices",
+    "authors": ["Oliver Child", "Patrick Baudisch", "Mike Fraser"],
+    "venue": "UIST '26",
+    "venue_full": "ACM Symposium on User Interface Software and Technology",
+    "year": 2026,
+    "award": "Best Paper Award",
+    "images": ["src/images/print-and-place.jpg", "src/images/print-and-place.gif"],
+    "summary": "Turning an unmodified FDM 3D printer into a pick-and-place machine that assembles fully encapsulated electronic devices straight off the print bed.",
+    "links": [
+      { "text": "ACM DL", "url": "https://dl.acm.org/doi/10.1145/3830398.3830564" },
+      { "text": "PDF", "url": "https://hpi.de/oldsite/fileadmin/user_upload/fachgebiete/baudisch/projects/Print___Place/UIST_2026___Print___Place.pdf" },
+      { "text": "Video", "url": "https://youtu.be/Dke9QhgUCbQ" },
+      { "text": "Project Page", "url": "https://hpi.de/baudisch/projects/print-and-place.html" }
+    ]
+  },
+  {
+    "title": "Printegrated Circuits: Personal Fabrication of 3D Printed Devices with Embedded PCBs",
+    "authors": ["Oliver Child", "Ollie Hanton", "Jack Dawson", "Steve Hodges", "Mike Fraser"],
+    "venue": "TEI '26",
+    "venue_full": "ACM International Conference on Tangible, Embedded, and Embodied Interaction",
+    "year": 2026,
+    "award": "Sustainability Recognition",
+    "images": ["src/images/printegrated.jpg", "src/images/posts/Printegrated_prinjection.gif"],
+    "summary": "Fully functional 3D printed devices with embedded PCBs, connected to conductive printed structures with a custom 'prinjection' step.",
+    "links": [
+      { "text": "ACM DL", "url": "https://dl.acm.org/doi/10.1145/3731459.3773307" },
+      { "text": "arXiv", "url": "https://arxiv.org/abs/2509.08459" },
+      { "text": "Writeup", "url": "/printegratedcircuits/" },
+      { "text": "Github", "url": "https://github.com/ollyoid/Printegrated-Circuits" },
+      { "text": "OSHWA Talk", "url": "https://www.youtube.com/watch?v=rc49FskUonI" }
+    ]
+  },
+  {
+    "title": "Tangible Explorations of Sonolithography",
+    "authors": ["Oliver Child", "Ollie Hanton", "Colin Kellett", "Matthew Sutton", "Bruce Drinkwater", "Mike Fraser"],
+    "venue": "TEI '24",
+    "venue_full": "ACM International Conference on Tangible, Embedded, and Embodied Interaction (Pictorial)",
+    "year": 2024,
+    "award": null,
+    "images": ["src/images/sonolithography.jpg"],
+    "summary": "Patterning particles with ultrasound as a tangible, hands-on fabrication material.",
+    "links": [
+      { "text": "ACM DL", "url": "https://doi.org/10.1145/3623509.3633387" },
+      { "text": "PDF", "url": "/files/Tangible Explorations of Sonolithography_camera_ready.pdf" },
+      { "text": "Instructables", "url": "https://www.instructables.com/Sonolithography-Making-Patterns-With-Ultrasound/" }
+    ]
+  }
+]

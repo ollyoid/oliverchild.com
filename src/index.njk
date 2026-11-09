@@ -1,5 +1,61 @@
 ---
-layout: layouts/home.njk
+layout: layouts/base.njk
 title: Oliver Child
+heading: OLIVER CHILD
 ---
-<p style="font-size:20px"> Researching and practicing the fabrication of delightful technology</p>
+<div id="about">
+    <div class="headshot">
+        {% image "src/images/headshot.jpg", "Oliver Child", "220px" %}
+    </div>
+    <div class="about-text">
+        <p style="font-size:20px">Researching and practicing the fabrication of delightful technology</p>
+        <p>
+            I'm a postdoc in the <a class="normal" href="https://hpi.de/baudisch/home.html">Human Computer Interaction group</a>
+            at the Hasso Plattner Institute, working on digital fabrication: how everyday tools like
+            3D printers can help people make interactive, electronic objects. Previously I did my PhD
+            in the <a class="normal" href="https://www.biglab.co.uk/">Bristol Interaction Group</a> at the University of Bristol.
+        </p>
+        <p class="contact_links">
+            {# Email is written as HTML character codes so simple scrapers can't read it; browsers decode it normally. #}
+            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#111;&#108;&#105;&#118;&#101;&#114;&#46;&#99;&#104;&#105;&#108;&#100;&#64;&#104;&#112;&#105;&#46;&#100;&#101;">Email</a>
+            <a href="https://scholar.google.com/citations?user=UUaTJt0AAAAJ&amp;hl=en">Google Scholar</a>
+            <a href="https://github.com/ollyoid">Github</a>
+            <a href="/projects/">Projects</a>
+        </p>
+    </div>
+</div>
+
+<h2>SELECTED PUBLICATIONS</h2>
+<div id="publications">
+    {% for pub in publications %}
+    <div class="pub">
+        <div class="pub-image">
+            {% if pub.images.length %}
+                {% set has_gif = false %}
+                {% for img in pub.images %}{% if '.gif' in img %}{% set has_gif = true %}{% endif %}{% endfor %}
+                <div class="project-gallery proj-image-container" data-has-gif="{{ has_gif }}">
+                    {% for img in pub.images %}
+                    <div class="gallery-image" data-is-gif="{% if '.gif' in img %}true{% else %}false{% endif %}" style="opacity: {% if loop.first %}1{% else %}0{% endif %};">
+                        {% image img, pub.title, "300px" %}
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="proj-image-container pub-image-placeholder"><span>{{ pub.venue }}</span></div>
+            {% endif %}
+        </div>
+        <div class="pub-body">
+            {% if pub.award %}<span class="award">★ {{ pub.award }} · {{ pub.venue }}</span><br>{% endif %}
+            <span class="pub-title"><b>{{ pub.title }}</b></span><br>
+            <span class="pub-authors">
+                {% for author in pub.authors %}{% if author == "Oliver Child" %}<u>{{ author }}</u>{% else %}{{ author }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}
+            </span><br>
+            <span class="pub-venue"><i>{{ pub.venue }}</i> — {{ pub.venue_full }}, {{ pub.year }}</span>
+            {% if pub.summary %}<p class="pub-summary">{{ pub.summary }}</p>{% endif %}
+            <span class="pub-links">
+                {% for link in pub.links %}<a href="{{ link.url }}">{{ link.text }}</a> {% endfor %}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>

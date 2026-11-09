@@ -9,20 +9,27 @@
 		{% if extra_css %}
 		<link href="/css/{{ extra_css }}" rel="stylesheet" type="text/css">
 		{% endif %}
+		<script src="/scripts/gallery.js" defer></script>
 		<title>
 			{{ title or "Oliver Child" }}
 		</title>
 	</head>
 
 	<body>
+		<nav id="nav">
+			{% if page.url != "/" %}<a href="/" class="nav-name">OLIVER CHILD</a>{% endif %}
+			<span class="nav-links">
+				<a href="/" {% if page.url == "/" %}class="active"{% endif %}>Research</a>
+				<a href="/projects/" {% if page.url == "/projects/" %}class="active"{% endif %}>Projects</a>
+			</span>
+		</nav>
 		<div id="title">
-            {% if page.url == "/" %}
+            {% if heading %}
 			<h1>
-			OLIVER CHILD
+			{{ heading }}
 			</h1>
             {% endif %}
 
-			
             {{ content | safe }}
 
 		</div>

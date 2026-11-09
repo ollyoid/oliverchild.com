@@ -15,6 +15,7 @@ external_links:
   - text: OSHWA Talk
     url: https://www.youtube.com/watch?v=rc49FskUonI
 tags: project
+academic: true
 layout: layouts/project.njk
 ---
 {% image "src/images/posts/Printegrated_creatures.png", "", "100vw" %}

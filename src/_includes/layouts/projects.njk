@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+---
+{{ content | safe }}
+<div id="projects">
+    <br>
+    {% for project in collections.project | reverse %}
+    {% if not project.data.academic %}
+        <div class="proj">
+            <span> <b>{{ project.data.title }}{% if project.data.date_display %} - {{ project.data.date_display }}{% endif %}</b> </span>
+            <br>
+            {% if project.data.images or project.data.image %}
+                {% if project.data.permalink != false %}
+                    <a href="{{ project.url }}" style="border:none; padding:0;">
+                {% endif %}
+                
+                {% if project.data.images %}
+                    {# Handle Multiple Images #}
+                    {% set has_gif = false %}
+                    {% for img in project.data.images %}
+                        {% if '.gif' in img %}{% set has_gif = true %}{% endif %}
+                    {% endfor %}
+
+                    <div class="project-gallery proj-image-container" data-has-gif="{{ has_gif }}">
+                        {% for img in project.data.images %}
+                            <div class="gallery-image" data-is-gif="{% if '.gif' in img %}true{% else %}false{% endif %}" style="opacity: {% if loop.first %}1{% else %}0{% endif %};">
+                                {% image img, project.data.title, "300px" %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {# Handle Single Image Fallback #}
+                    <div class="proj-image-container">
+                        {% image project.data.image, project.data.title, "300px" %}
+                    </div>
+                {% endif %}
+
+                {% if project.data.permalink != false %}
+                    </a>
+                {% endif %}
+            {% endif %}
+            <br>
+            <span>{{ project.data.description }}</span>
+            <br>
+            {% for link in project.data.external_links %}
+                {% if link.url %}
+                <span><a href="{{ link.url }}">{{ link.text }}</a></span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
