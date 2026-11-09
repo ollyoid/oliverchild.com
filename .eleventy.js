@@ -38,6 +38,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Changes on every build; appended to CSS/JS URLs so browsers and the
+  // GitHub Pages CDN fetch fresh copies after each deploy instead of stale cached ones.
+  eleventyConfig.addGlobalData("buildVersion", Date.now().toString(36));
+
   eleventyConfig.addFilter("date", (dateObj) => {
     return new Date(dateObj).toLocaleDateString('en-US', {
       year: 'numeric',

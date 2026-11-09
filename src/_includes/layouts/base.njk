@@ -5,11 +5,11 @@
 		<meta name="author" content="Oliver Child">
 		<meta name="description" content ="Oliver Child's homepage and portfolio">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="/css/main.css" rel="stylesheet" type="text/css">
+		<link href="/css/main.css?v={{ buildVersion }}" rel="stylesheet" type="text/css">
 		{% if extra_css %}
-		<link href="/css/{{ extra_css }}" rel="stylesheet" type="text/css">
+		<link href="/css/{{ extra_css }}?v={{ buildVersion }}" rel="stylesheet" type="text/css">
 		{% endif %}
-		<script src="/scripts/gallery.js" defer></script>
+		<script src="/scripts/gallery.js?v={{ buildVersion }}" defer></script>
 		<title>
 			{{ title or "Oliver Child" }}
 		</title>
