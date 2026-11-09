@@ -4,6 +4,8 @@ html {
 	margin: 0 10px 0 10px;
 	font-family: monospace;
 	font-size: 12px;
+	background-color: white;
+	color: black;
 	/* background-color: black;
 	border-color: white;
 	color: white; */
@@ -92,5 +94,154 @@ a:hover {
 a.normal {
 	text-decoration:underline;
 	border: none;
+	padding: 0;
+	line-height: inherit;
 }
 
+
+/* ---------- Nav ---------- */
+
+#nav {
+	padding: 10px 10px 0 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+#nav .nav-links {
+	margin-left: auto;
+}
+
+#nav a.active {
+	color: white;
+	background-color: black;
+}
+
+/* ---------- Image cards (shared by projects + publications) ---------- */
+
+.proj-image-container {
+	width: 300px;
+	aspect-ratio: 4 / 3;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
+
+.proj-image-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	display: block;
+}
+
+.gallery-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: opacity 0s ease-in-out;
+}
+
+/* ---------- About ---------- */
+
+#about {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 0 10px;
+}
+
+#about .headshot {
+	flex: 0 0 220px;
+	border: solid;
+	border-width: 1px 1px 2px 2px;
+	line-height: 0;
+	overflow: hidden;
+}
+
+#about .headshot img {
+	width: 220px;
+	height: 220px;
+	object-fit: cover;
+	object-position: center top;
+	/* zoom in on the face, keeping the top of the head in frame */
+	transform: scale(1.15) translateY(-4%);
+	transform-origin: center top;
+}
+
+#about .about-text p {
+	padding: 6px 10px;
+	max-width: 600px;
+}
+
+#about .contact_links {
+	text-align: left;
+}
+
+/* ---------- Publications ---------- */
+
+#publications {
+	display: flex;
+	flex-direction: column;
+}
+
+.pub {
+	display: flex;
+	gap: 16px;
+	position: relative;
+	border: solid;
+	border-width: 1px 1px 2px 2px;
+	background-color: rgb(250, 250, 250);
+	margin: 10px;
+	padding: 10px;
+	text-align: left;
+}
+
+.pub-image {
+	flex: 0 0 300px;
+	line-height: 0;
+}
+
+.pub-image-placeholder {
+	border: dashed 1px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 2;
+	box-sizing: border-box;
+}
+
+.pub-body {
+	flex: 1;
+	min-width: 0;
+}
+
+.pub-title {
+	font-size: 15px;
+}
+
+.pub-summary {
+	padding: 6px 0;
+}
+
+.award {
+	display: inline-block;
+	background-color: black;
+	color: white;
+	padding: 0 6px;
+	font-weight: bold;
+}
+
+@media (max-width: 680px) {
+	#about, .pub {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.pub-image {
+		flex-basis: auto;
+	}
+}
